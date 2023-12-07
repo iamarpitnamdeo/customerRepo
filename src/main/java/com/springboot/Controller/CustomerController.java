@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import com.springboot.Model.Customer;
+import com.springboot.Model.Product;
 import com.springboot.Service.CustomerService;
 
 @RestController
@@ -64,36 +65,36 @@ public class CustomerController {
 	        return restTemplate.exchange("http://localhost:8082/product", HttpMethod.GET, entity, String.class).getBody();
 	    }
 	  
-//	  @RequestMapping(value = "/template/product", method = RequestMethod.POST)
-//	   public String createProducts(@RequestBody Product product) {
-//	      HttpHeaders headers = new HttpHeaders();
-//	      headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-//	      HttpEntity<Product> entity = new HttpEntity<Product>(product,headers);
-//	      
-//	      return restTemplate.exchange(
-//	         "http://localhost:8082/product", HttpMethod.POST, entity, String.class).getBody();
-//	   }
-//	  
-//
-//	   @RequestMapping(value = "/template/product/{id}", method = RequestMethod.PUT)
-//	   public String updateProduct(@PathVariable("id") int id, @RequestBody Product product) {
-//	      HttpHeaders headers = new HttpHeaders();
-//	      headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-//	      HttpEntity<Product> entity = new HttpEntity<Product>(product,headers);
-//	      
-//	      return restTemplate.exchange(
-//	         "http://localhost:8082/product/"+id, HttpMethod.PUT, entity, String.class).getBody();
-//	   }
-//	   
-//
-//	   @RequestMapping(value = "/template/product/{id}", method = RequestMethod.DELETE)
-//	   public String deleteProduct(@PathVariable("id") int id) {
-//	      HttpHeaders headers = new HttpHeaders();
-//	      headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-//	      HttpEntity<Product> entity = new HttpEntity<Product>(headers);
-//	      
-//	      return restTemplate.exchange(
-//	         "http://localhost:8082/product/"+id, HttpMethod.DELETE, entity, String.class).getBody();
-//	   }
-//	   
+	  @RequestMapping(value = "/template/product", method = RequestMethod.POST)
+	   public String createProducts(@RequestBody Product product) {
+	      HttpHeaders headers = new HttpHeaders();
+	      headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+	      HttpEntity<Product> entity = new HttpEntity<Product>(product,headers);
+	      
+	      return restTemplate.exchange(
+	         "http://localhost:8082/product", HttpMethod.POST, entity, String.class).getBody();
+	   }
+	  
+
+	   @RequestMapping(value = "/template/product/{id}", method = RequestMethod.PUT)
+	   public String updateProduct(@PathVariable("id") int id, @RequestBody Product product) {
+	      HttpHeaders headers = new HttpHeaders();
+	      headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+	      HttpEntity<Product> entity = new HttpEntity<Product>(product,headers);
+	      
+	      return restTemplate.exchange(
+	         "http://localhost:8082/product/"+id, HttpMethod.PUT, entity, String.class).getBody();
+	   }
+	   
+
+	   @RequestMapping(value = "/template/product/{id}", method = RequestMethod.DELETE)
+	   public String deleteProduct(@PathVariable("id") int id) {
+	      HttpHeaders headers = new HttpHeaders();
+	      headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+	      HttpEntity<Product> entity = new HttpEntity<Product>(headers);
+	      
+	      return restTemplate.exchange(
+	         "http://localhost:8082/product/"+id, HttpMethod.DELETE, entity, String.class).getBody();
+	   }
+	   
 }
